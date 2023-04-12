@@ -18,6 +18,7 @@
         "ami_name": "cnr-ubuntu-20.04-golden-image-{{timestamp}}",
         "vpc_id": "{{user `aws_vpc_id`}}",
         "subnet_id": "{{user `aws_subnet_id`}}",
+        "associate_public_ip_address": "true",
         "source_ami_filter": {
           "filters": {
             "virtualization-type": "hvm",
