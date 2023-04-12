@@ -16,6 +16,8 @@
         "region": "{{user `aws_region`}}",
         "ssh_username": "ubuntu",
         "ami_name": "cnr-ubuntu-20.04-golden-image-{{timestamp}}",
+        "vpc_id": "{{user `aws_vpc_id`}}",
+        "subnet_id": "{{user `aws_subnet_id`}}",
         "source_ami_filter": {
           "filters": {
             "virtualization-type": "hvm",
