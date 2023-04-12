@@ -29,10 +29,7 @@ phases:
       - cat aws_credentials.json
   build:
     commands:
-      - export PACKER_LOG=1
-      - echo $PACKER_LOG
       - echo "Validating ubuntu-hardened.json"
-      - ls -l .
       - packer validate ./ubuntu-hardened.json
       - echo "Building HashiCorp Packer template, ubuntu-hardened.json"
       - packer build ./ubuntu-hardened.json | tee build.log
