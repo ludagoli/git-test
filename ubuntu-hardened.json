@@ -33,7 +33,7 @@
       "type": "ansible",
       "user": "ubuntu",
       "playbook_file": "setup.yml",
-      "extra_arguments": ["--extra-vars", "ansible_python_interpreter=/usr/bin/python3", "--scp-extra-args", "'-O'"]
+      "extra_arguments": ["--extra-vars", "ansible_python_interpreter=/usr/bin/python3"]
   }]
 
 }
