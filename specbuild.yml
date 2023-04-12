@@ -11,7 +11,7 @@ phases:
     commands:
       # Install Packer, pip, and Ansible
       - apt-get update -y
-      - apt-get install -y python-pip unzip
+      - apt-get install -y python3-pip unzip
       - pip install --upgrade pip
       - pip install ansible
       - pip install awscli
@@ -27,7 +27,7 @@ phases:
       - aws configure set region $AWS_REGION
   build:
     commands:
-      - packer validate packer/linux_aws_ansible_pipeline.json && PACKER_LOG=1 packer build ubuntu-hardenend.json  | tee build.log
+      - packer validate build ubuntu-hardenend.json && PACKER_LOG=1 packer build ubuntu-hardenend.json  | tee build.log
   post_build:
     commands:
       - egrep "${AWS_REGION}\:\sami\-" build.log | cut -d' ' -f2 > ami_id
