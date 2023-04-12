@@ -7,7 +7,7 @@ env:
     PACKER_VERSION: 1.8.6
     USER: root
 phases:
-  installing_prerequisites:
+  install:
     commands:
       # Install Packer, pip, and Ansible
       - apt-get update -y
