@@ -1,0 +1,56 @@
+---
+# tasks file for cnr-hardening-ubuntu-20.04-v1
+
+- name: Inspect OS and Version that the role is being appliend on.
+  debug: 
+    msg:
+      - "Role cnr-hardening-ubuntu-20.04.v1 being applied upon | OS: {{ ansible_distribution }} {{ ansible_distribution_version }}"
+  tags:
+    - always
+
+- name: Fail if the OS is not Ubuntu 20.04
+  fail: 
+    msg:
+      - "Role cnr-hardening-ubuntu-20.04.v1 is not supported on OS: {{ ansible_distribution }} {{ ansible_distribution_version }}"
+  when: 
+    - not ansible_distribution == "Ubuntu"
+    - not ansible_distribution_version == "20.04"
+  tags:
+    - always
+
+- name: Import Preliminary Tasks
+  import_tasks: preliminary.yml
+  become: true
+  when:
+    - preliminary_appliance
+
+- name: Import CIS Section 1 tasks
+  import_tasks: section_01.yml
+  become: true
+  when: ubuntu_2004_cis_section1
+
+- name: Import CIS Section 2 tasks
+  import_tasks: section_02.yml
+  become: true
+  when: ubuntu_2004_cis_section2
+
+- name: Import CIS Section 3 tasks
+  import_tasks: section_03.yml
+  become: true
+  when: ubuntu_2004_cis_section3
+
+- name: Import CIS Section 4 tasks
+  import_tasks: section_04.yml
+  become: true
+  when: ubuntu_2004_cis_section4
+
+- name: Import CIS Section 5 tasks
+  import_tasks: section_05.yml
+  become: true
+  when: ubuntu_2004_cis_section5
+
+- name: Import CIS Section 6 tasks
+  import_tasks: section_06.yml
+  become: true
+  when: ubuntu_2004_cis_section6
+

@@ -1,0 +1,5 @@
+---
+- hosts: localhost
+  remote_user: root
+  roles:
+    - cnr-hardening-ubuntu-20.04-v1

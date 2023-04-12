@@ -1,0 +1,1 @@
+# aws-hardening-ami-pipeline
